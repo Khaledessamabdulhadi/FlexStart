@@ -643,6 +643,7 @@ header {
       }
       img {
         width: 450px;
+        max-width: 100%;
       }
     }
   }
@@ -959,25 +960,36 @@ header {
     flex-wrap: wrap;
     padding-top: var(--main-padding-top);
     padding-bottom: var(--main-padding-bottom);
-    .accordion-item {
-      width: 48%;
-      margin-bottom: 30px;
-      border: none;
-      border-bottom: 1px solid rgb(68 68 68 / 20%);
+    .box {
+      flex-basis: 47%;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      border-bottom: 1px solid rgb(68, 68, 68, 10%);
+      padding-bottom: 20px;
+      cursor: pointer;
+      margin-top: 20px;
       @media (max-width: 991px) {
-        width: 100%;
-        margin: 0 auto;
-        margin-bottom: 30px;
+        flex-basis: 100%;
       }
-      .accordion-button {
-        padding: 0 0 20px;
-        .accordion-button:focus {
-          box-shadow: transparent;
+      &:hover p,
+      &:hover i {
+        color: var(--main-color);
+      }
+      p {
+        color: var(--paragraph-color);
+        font-size: 15px;
+        @media (max-width: 600px) {
+          font-size: 12px;
         }
+      }
+      i {
+        color: var(--paragraph-color);
       }
     }
   }
 }
+
 /* ENd accordion Section */
 /* Start Portfolio Section */
 .portfolio {
@@ -1228,25 +1240,41 @@ header {
 /* ENd Team Section */
 /* Start Clients Section */
 .clients {
+  @media (max-width: 767px) {
+    display: none;
+  }
   .container {
     padding-top: var(--main-padding-top);
     .images {
       display: flex;
       justify-content: space-between;
-      align-items: center;
       flex-wrap: wrap;
-      text-align: center;
-    }
-    img {
-      display: block;
-      width: 100px;
-      max-width: 100%;
-      margin-right: 30px;
-      @media (max-width: 991px) {
-        margin-bottom: 60px;
-      }
-      @media (max-width: 590) {
+
+      @media (max-width: 600px) {
         flex-direction: column;
+      }
+      .box {
+        width: 200px;
+        &.first {
+          @media (max-width: 991px) {
+            display: none;
+          }
+        }
+        &.second {
+          @media (max-width: 767px) {
+            display: none;
+          }
+        }
+        &.fourth,
+        &.fifth {
+          @media (max-width: 600px) {
+            display: none;
+          }
+        }
+        img {
+          max-width: 100%;
+          object-fit: cover;
+        }
       }
     }
   }
