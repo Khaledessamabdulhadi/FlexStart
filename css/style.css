@@ -70,6 +70,7 @@ a {
   align-items: center;
   flex-direction: column;
   text-align: center;
+
   p {
     background-color: rgb(65 84 241 / 15%);
     color: var(--main-color);
@@ -84,6 +85,9 @@ a {
   h3 {
     font-size: 30px;
     color: var(--heading-color);
+    @media (max-width: 991px) {
+      font-size: 20px;
+    }
   }
 }
 /* End Main Heading Section */
